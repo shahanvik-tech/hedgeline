@@ -1,0 +1,16 @@
+node_modules/
+.next/
+data/*.db
+data/*.db-*
+*.log
+.DS_Store
+work/
+.impeccable/questions/
+.impeccable/mocks/
+.impeccable/review/
+AGENTS.md
+.env
+.env.*
+!.env.example
+pnpm-lock.yaml
+pnpm-workspace.yaml

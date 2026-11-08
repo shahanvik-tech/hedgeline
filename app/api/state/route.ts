@@ -1,0 +1,2 @@
+import db from '@/lib/db';import {getMarkets} from '@/lib/markets';import {NextResponse} from 'next/server';
+export const runtime='nodejs';export async function GET(){const [companies,risks,hedges,feed]=await Promise.all([Promise.resolve(db.prepare('SELECT * FROM companies ORDER BY id').all()),Promise.resolve(db.prepare('SELECT * FROM risks ORDER BY created_at DESC,id DESC').all()),Promise.resolve(db.prepare('SELECT * FROM hedges ORDER BY created_at DESC,id DESC').all()),getMarkets()]);return NextResponse.json({companies,risks,hedges,feed})}
